@@ -81,7 +81,7 @@ When successful, provide:
 
 Always be creative, persuasive, and focus on generating high-converting advertising content.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   tools: {
     pdfContentExtractorTool,
     adCopyGeneratorTool,
