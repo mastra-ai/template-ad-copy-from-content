@@ -23,7 +23,7 @@ A Mastra template that generates compelling ad copy and promotional images from 
    Create a `.env` file with:
 
    ```
-   OPENAI_API_KEY=your_openai_api_key
+   GROQ_API_KEY=your_openai_api_key
 
    # For web content extraction (optional - only needed for URL input type)
    BROWSERBASE_API_KEY=your_browserbase_api_key
@@ -195,7 +195,7 @@ To modify or extend this template:
 
 ## Environment Variables
 
-- `OPENAI_API_KEY`: Required for AI generation (OpenAI GPT-4)
+- `GROQ_API_KEY`: Required for AI generation (Groq GPT-4)
 - `BROWSERBASE_API_KEY`: Required for web content extraction (BrowserBase)
 - `BROWSERBASE_PROJECT_ID`: Required for web content extraction (BrowserBase)
 - Additional API keys may be needed for external integrations
@@ -203,7 +203,7 @@ To modify or extend this template:
 ## Dependencies
 
 - `@mastra/core`: Core Mastra framework
-- `@ai-sdk/openai`: OpenAI integration
+- `@ai-sdk/groq`: Groq integration
 - `@browserbasehq/stagehand`: Web browsing and content extraction
 - `pdf2json`: PDF text extraction
 - `ai`: AI SDK for image generation
