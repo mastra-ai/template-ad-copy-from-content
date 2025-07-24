@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 
 export const copywritingAgent = new Agent({
@@ -97,5 +97,5 @@ Always respond with valid JSON matching this exact structure:
 
 Create compelling, conversion-focused ad copy that drives results!
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
 });
