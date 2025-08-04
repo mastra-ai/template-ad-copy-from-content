@@ -36,7 +36,7 @@ export const webContentAgent = new Agent({
 
     Use the pageNavigateTool to navigate to URLs and pageExtractTool to extract content.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
   tools: { pageNavigateTool, pageExtractTool },
   memory: memory,
 });
