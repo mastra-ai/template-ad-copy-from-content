@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { google } from '@ai-sdk/google';
 import { Agent } from '@mastra/core/agent';
 
 export const copywritingAgent = new Agent({
@@ -97,5 +97,5 @@ Always respond with valid JSON matching this exact structure:
 
 Create compelling, conversion-focused ad copy that drives results!
   `,
-  model: openai('gpt-4o'),
+  model: google(process.env.MODEL ?? "gemini-2.5-pro"),
 });
