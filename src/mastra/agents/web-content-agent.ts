@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 import { Memory } from '@mastra/memory';
 import { pageNavigateTool } from '../tools/page-navigate-tool';
@@ -36,7 +36,7 @@ export const webContentAgent = new Agent({
 
     Use the pageNavigateTool to navigate to URLs and pageExtractTool to extract content.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
   tools: { pageNavigateTool, pageExtractTool },
   memory: memory,
 });

@@ -23,7 +23,7 @@ A Mastra template that generates compelling ad copy and promotional images from 
    Create a `.env` file with:
 
    ```
-   OPENAI_API_KEY=your_openai_api_key
+   ANTHROPIC_API_KEY=your_openai_api_key
 
    # For web content extraction (optional - only needed for URL input type)
    BROWSERBASE_API_KEY=your_browserbase_api_key
@@ -203,7 +203,7 @@ To modify or extend this template:
 
 ### Required
 
-- `OPENAI_API_KEY`: Required for AI generation (OpenAI GPT-4)
+- `ANTHROPIC_API_KEY`: Required for AI generation (Anthropic GPT-4)
 
 ### Optional (based on features used)
 
@@ -233,7 +233,7 @@ S3_PUBLIC_URL_BASE=https://mastra-generated-images.s3.amazonaws.com
 ## Dependencies
 
 - `@mastra/core`: Core Mastra framework
-- `@ai-sdk/openai`: OpenAI integration
+- `@ai-sdk/anthropic`: Anthropic integration
 - `@aws-sdk/client-s3`: S3-compatible cloud storage (for image uploads)
 - `@browserbasehq/stagehand`: Web browsing and content extraction
 - `pdf2json`: PDF text extraction
