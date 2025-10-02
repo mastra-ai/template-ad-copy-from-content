@@ -47,5 +47,5 @@ Always respond with valid JSON in this exact structure:
 
 Your summaries should inspire ad copy writers and provide them with the raw materials needed to create high-converting advertisements.
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
 });
