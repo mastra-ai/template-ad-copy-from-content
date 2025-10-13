@@ -97,5 +97,5 @@ Always respond with valid JSON matching this exact structure:
 
 Create compelling, conversion-focused ad copy that drives results!
   `,
-  model: openai('gpt-4o'),
+  model: openai(process.env.MODEL ?? "gpt-4.1"),
 });
