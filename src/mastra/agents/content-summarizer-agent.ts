@@ -1,4 +1,4 @@
-import { openai } from '@ai-sdk/openai';
+import { anthropic } from '@ai-sdk/anthropic';
 import { Agent } from '@mastra/core/agent';
 
 export const contentSummarizerAgent = new Agent({
@@ -47,5 +47,5 @@ Always respond with valid JSON in this exact structure:
 
 Your summaries should inspire ad copy writers and provide them with the raw materials needed to create high-converting advertisements.
   `,
-  model: openai('gpt-4o'),
+  model: anthropic(process.env.MODEL ?? "claude-3-5-sonnet-20240620"),
 });
