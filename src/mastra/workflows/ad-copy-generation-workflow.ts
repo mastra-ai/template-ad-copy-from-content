@@ -1,6 +1,6 @@
 import { createWorkflow, createStep, mapVariable } from '@mastra/core/workflows';
 import { z } from 'zod';
-import { RequestContext } from '@mastra/core/di';
+import { RuntimeContext } from '@mastra/core/di';
 import { pdfContentExtractorTool } from '../tools/pdf-content-extractor-tool';
 import { adCopyGeneratorTool } from '../tools/ad-copy-generator-tool';
 import { imageGeneratorTool } from '../tools/image-generator-tool';
@@ -61,7 +61,7 @@ const extractContentStep = createStep({
       })
       .optional(),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { contentInput, inputType } = inputData;
 
     console.log(`📝 Processing ${inputType} content...`);
@@ -141,7 +141,7 @@ const extractContentStep = createStep({
             pdfUrl: contentInput,
             focusAreas: ['benefits', 'features', 'value-proposition'],
           },
-          requestContext: requestContext || new RequestContext(),
+          runtimeContext: runtimeContext || new RuntimeContext(),
         });
 
         return {
@@ -201,7 +201,7 @@ const generateAdCopyStep = createStep({
     body: z.string(),
     cta: z.string(),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { processedContent, extractedData, platform, campaignType, targetAudience, tone, productType } = inputData;
 
     console.log('✍️ Generating ad copy...');
@@ -221,7 +221,7 @@ const generateAdCopyStep = createStep({
           productType,
           keyBenefits,
         },
-        requestContext: requestContext || new RequestContext(),
+        runtimeContext: runtimeContext || new RuntimeContext(),
       });
 
       // Return just the first ad set for simplicity
@@ -262,7 +262,7 @@ const generateImageStep = createStep({
   outputSchema: z.object({
     imageUrl: z.string().optional(),
   }),
-  execute: async ({ inputData, requestContext, mastra }) => {
+  execute: async ({ inputData, runtimeContext, mastra }) => {
     const { generateImages, imageStyle = 'modern', platform, headline, body } = inputData;
 
     if (!generateImages) {
@@ -286,7 +286,7 @@ const generateImageStep = createStep({
               : (platform as 'facebook' | 'instagram' | 'linkedin' | 'twitter' | 'generic') || 'generic',
           size: platform === 'instagram' ? '1024x1024' : '1792x1024',
         },
-        requestContext: requestContext || new RequestContext(),
+        runtimeContext: runtimeContext || new RuntimeContext(),
       });
 
       console.log('✅ Generated promotional image');
