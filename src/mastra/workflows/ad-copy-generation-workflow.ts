@@ -70,7 +70,7 @@ const extractContentStep = createStep({
       console.log('🌐 Extracting content from website URL...');
 
       try {
-        // Import mastra instance directly since request context access is complex in workflows
+        // Import mastra instance directly since runtime context access is complex in workflows
         const webContentAgent = mastra.getAgent('webContentAgent');
 
         // Use the agent to extract content

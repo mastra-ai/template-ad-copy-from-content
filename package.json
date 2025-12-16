@@ -14,9 +14,10 @@
   "description": "A Mastra template that generates compelling ad copy and promotional images from content provided as plain text or PDF links. Features AI-powered copywriting with image generation capabilities.",
   "type": "module",
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=20.9.0"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.87",
     "@aws-sdk/client-s3": "^3.948.0",
     "@browserbasehq/stagehand": "^2.5.6",
     "@mastra/core": "latest",

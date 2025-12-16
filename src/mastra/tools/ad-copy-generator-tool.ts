@@ -71,13 +71,13 @@ export const adCopyGeneratorTool = createTool({
       })
       .describe('Platform-specific recommendations'),
   }),
-  execute: async (inputData, context) => {
-    const { content, platform, campaignType, targetAudience, tone, productType, keyBenefits = [] } = inputData;
+  execute: async ({ context, mastra }) => {
+    const { content, platform, campaignType, targetAudience, tone, productType, keyBenefits = [] } = context;
 
     console.log(`🎯 Generating ad copy for ${platform} platform with ${tone} tone`);
 
     try {
-      const copywritingAgent = context?.mastra?.getAgent('copywritingAgent');
+      const copywritingAgent = mastra?.getAgent('copywritingAgent');
       if (!copywritingAgent) {
         throw new Error('Copywriting agent not found');
       }
